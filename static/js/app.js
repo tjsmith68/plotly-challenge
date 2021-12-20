@@ -20,6 +20,8 @@ var traceGauge = {
     direction: 'clockwise',
     textinfo: 'text',
     textposition: 'inside',
+    height: 700,
+    width: 700,
     marker: {
       colors: ["rgba(220, 40, 50, 0.6)",
                 "rgba(200, 60, 50, 0.6)",
@@ -97,9 +99,9 @@ function updateBarChart() {
 
     for(i=0;i<loopCount;i++) {
 
-        sampleValues[9-i] = sampleArray[i];
-        sampleOTUs[9-i] = `OTU: ${otuArray[i]}`;
-        otuLabels[9-i] = hoverArray[i];
+        sampleValues[(loopCount-1)-i] = sampleArray[i];
+        sampleOTUs[(loopCount-1)-i] = `OTU: ${otuArray[i]}`;
+        otuLabels[(loopCount-1)-i] = hoverArray[i];
 
 
     }
