@@ -89,8 +89,13 @@ function updateBarChart() {
     var sampleArray = sampleData[0].sample_values;
     var hoverArray = sampleData[0].otu_labels;
 
+    var loopCount = 10;
 
-    for(i=0;i<10;i++) {
+    if (sampleArray.length < 10) {
+      loopCount = sampleArray.length;
+    }
+
+    for(i=0;i<loopCount;i++) {
 
         sampleValues[9-i] = sampleArray[i];
         sampleOTUs[9-i] = `OTU: ${otuArray[i]}`;
