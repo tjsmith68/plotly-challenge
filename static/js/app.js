@@ -1,14 +1,4 @@
 
-
-// fetch("static/js/samples.json").then(function(response){
-//     response.text().then(function(text){
-//         console.log(text);
-//     })
-// });
-
-
-
-
 // Create arrays of sample id's, sample demographics, and sample data
 var names = Object.values(data.names);
 var demogs = Object.values(data.metadata);
@@ -65,9 +55,9 @@ for(let i = 0;i<names.length;i++) {
 }
 
 // Log some stuff to console for a sanity check
-console.log(names);
-console.log(demogs);
-console.log(samples);
+// console.log(names);
+// console.log(demogs);
+// console.log(samples);
 
 // Function to update demographics info on page
 function updateDemogsTable() {
@@ -131,10 +121,10 @@ function updateBarChart() {
 
     Plotly.newPlot('bar', data, layout);
 
-    console.log(`Bar Chart for ${person}`);
-    console.log(sampleValues);
-    console.log(sampleOTUs);
-    console.log(otuLabels);
+    // console.log(`Bar Chart for ${person}`);
+    // console.log(sampleValues);
+    // console.log(sampleOTUs);
+    // console.log(otuLabels);
 
 }
 
@@ -183,7 +173,7 @@ function updateBubbleGraph() {
       
       Plotly.newPlot('bubble', data, layout);
 
-    console.log(`Bubble Graph for ${person}`);
+    // console.log(`Bubble Graph for ${person}`);
 
 }
 
