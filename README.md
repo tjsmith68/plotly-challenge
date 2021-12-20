@@ -23,5 +23,5 @@ Folders:
                     samples.js      The original data for this project was in a file named
                                     samples.json. However, attempts to read this with D3 caused
                                     an error. I created an alternate file with the same data 
-                                    assigned to a variable and inported it via a script tag
+                                    assigned to a variable and imported it via a script tag
                                     in the HTML code. 
