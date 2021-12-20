@@ -66,17 +66,26 @@ function updateDemogsTable() {
 
 
 
-    d3.selectAll("p").remove();
+    d3.selectAll("p.temp").remove();
 
     var metaD = d3.select("div.panel-body");
 
-    metaD.append("p").text(`ID: ${sampleMetadata[0].id}`);
-    metaD.append("p").text(`Ethnicity: ${sampleMetadata[0].ethnicity}`);
-    metaD.append("p").text(`Gender: ${sampleMetadata[0].gender}`);
-    metaD.append("p").text(`Age: ${sampleMetadata[0].age}`);
-    metaD.append("p").text(`BB Type: ${sampleMetadata[0].bbtype}`);
-    metaD.append("p").text(`Location: ${sampleMetadata[0].location}`);
-    metaD.append("p").text(`Wash Freq: ${sampleMetadata[0].wfreq}`);
+    
+
+    var temp = metaD.append("p").text(`ID: ${sampleMetadata[0].id}`);
+    temp.attr("class", 'temp');
+    temp = metaD.append("p").text(`Ethnicity: ${sampleMetadata[0].ethnicity}`);
+    temp.attr("class", 'temp');
+    temp = metaD.append("p").text(`Gender: ${sampleMetadata[0].gender}`);
+    temp.attr("class", 'temp');
+    temp = metaD.append("p").text(`Age: ${sampleMetadata[0].age}`);
+    temp.attr("class", 'temp');
+    temp = metaD.append("p").text(`BB Type: ${sampleMetadata[0].bbtype}`);
+    temp.attr("class", 'temp');
+    temp = metaD.append("p").text(`Location: ${sampleMetadata[0].location}`);
+    temp.attr("class", 'temp');
+    temp = metaD.append("p").text(`Wash Freq: ${sampleMetadata[0].wfreq}`);
+    temp.attr("class", 'temp');
 
 }
 
