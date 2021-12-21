@@ -14,13 +14,13 @@ var traceGauge = {
     type: 'pie',
     showlegend: false,
     hole: 0.5,
-    rotation: 90,
-    values: [ 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 90],
+    rotation: 120,
+    values: [ 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 120],
     text: ['0','1','2','3','4','5','6','7','8','9'],
     direction: 'clockwise',
     textinfo: 'text',
     textposition: 'inside',
-    height: 700,
+    height: 600,
     width: 700,
     marker: {
       colors: ["rgba(220, 40, 50, 0.6)",
@@ -199,7 +199,7 @@ function updateWashGauge(washes) {
 
   var position = washes;
   var needleColor = 'rgba(200,0,0,1)';
-  var degrees = 171 - (18 * position), needleLength = .25, needleWidth = .02
+  var degrees = 198 - (24 * position), needleLength = .25, needleWidth = .02
   var radians = degrees * Math.PI / 180;
   var xa = .5 + needleLength * Math.cos(radians) 
   var ya = .5 + needleLength * Math.sin(radians)
@@ -280,15 +280,15 @@ function updateWashGauge(washes) {
 // Function called by DOM changes
 function optionChanged(option) {
     
-    console.log(option);
+    // console.log(option);
 
     person = option;
 
     sampleMetadata = demogs.filter(selectDemogs);
     sampleData = samples.filter(selectSample);
 
-    console.log(sampleMetadata);
-    console.log(sampleData);
+    // console.log(sampleMetadata);
+    // console.log(sampleData);
 
     updateDemogsTable();
     updateBarChart();
