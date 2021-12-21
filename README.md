@@ -12,6 +12,8 @@ Folders:
                                     template and containers for the various plotly objects
                                     that are produced in javascript.
 
+                    samples.json    This file contains all the sample data used by the site.  
+
     /static/js  Contains:
 
                     app.js          This file contains all the javascript code for producing
@@ -20,8 +22,3 @@ Folders:
                                     sample drop down menu and the demographics panel of the
                                     selected sample. 
 
-                    samples.js      The original data for this project was in a file named
-                                    samples.json. However, attempts to read this with D3 caused
-                                    an error. I created an alternate file with the same data 
-                                    assigned to a variable and imported it via a script tag
-                                    in the HTML code. 

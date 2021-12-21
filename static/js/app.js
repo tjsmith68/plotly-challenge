@@ -1,8 +1,7 @@
-
-// Create arrays of sample id's, sample demographics, and sample data
-var names = Object.values(data.names);
-var demogs = Object.values(data.metadata);
-var samples = Object.values(data.samples);
+// Create objects to hold sample id's, sample demographics, and sample data. This allows the sample to be read just once.
+var names = {};
+var demogs = {};
+var samples = {};
 
 var sampleMetadata = [];
 var sampleData = [];
@@ -50,21 +49,16 @@ function selectSample(samples) {
   };
 
 // Loop through sample id list and build drop down
-var dropD = d3.select("select");
-for(let i = 0;i<names.length;i++) {
-    var newOption = dropD.append("option").text(`Sample ${names[i]}`);
-    newOption.attr("value", parseInt(names[i]));
-}
-
-// Log some stuff to console for a sanity check
-// console.log(names);
-// console.log(demogs);
-// console.log(samples);
+function buildDropDown(names) {
+  var dropD = d3.select("select");
+  for(let i = 0;i<names.length;i++) {
+      var newOption = dropD.append("option").text(`Sample ${names[i]}`);
+      newOption.attr("value", parseInt(names[i]));
+  };
+};
 
 // Function to update demographics info on page
 function updateDemogsTable() {
-
-
 
     d3.selectAll("p.temp").remove();
 
@@ -136,11 +130,6 @@ function updateBarChart() {
     }; 
 
     Plotly.newPlot('bar', data, layout);
-
-    // console.log(`Bar Chart for ${person}`);
-    // console.log(sampleValues);
-    // console.log(sampleOTUs);
-    // console.log(otuLabels);
 
 }
 
@@ -297,4 +286,33 @@ function optionChanged(option) {
 
 
 };
+
+console.log("HERE");
+
+
+d3.json("samples.json").then(function(data) { 
+
+  names = data.names;
+  demogs = data.metadata;
+  samples = data.samples;
+
+  console.log(data);
+
+  console.log(names);
+  console.log(demogs);
+  console.log(samples);
+
+  buildDropDown(names);
+
+  person = names[0];
+
+  sampleMetadata = demogs.filter(selectDemogs);
+  sampleData = samples.filter(selectSample);
+
+  updateDemogsTable();
+  updateBarChart();
+  updateBubbleGraph();
+  updateWashGauge(sampleMetadata[0].wfreq);
+
+});
 
